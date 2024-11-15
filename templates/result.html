@@ -1,0 +1,11 @@
+<div id="result"
+     class="w3-container w3-section w3-panel
+            {{ 'w3-pale-green w3-border-green' if sentiment_score > 0 }}
+            {{ 'w3-pale-yellow w3-border-yellow' if sentiment_score == 0 }}
+            {{ 'w3-pale-red w3-border-red' if sentiment_score < 0 }}
+            w3-bottombar w3-border w3-round w3-card">
+    <h2 class="w3-center">Analysis Result:</h2>
+    <p><strong>Original Text:</strong> {{ original_text }}</p>
+    <p><strong>Sentiment:</strong> {{ sentiment_label }}</p>
+    <p><strong>Sentiment Score:</strong> {{ sentiment_score }}</p>
+</div>
