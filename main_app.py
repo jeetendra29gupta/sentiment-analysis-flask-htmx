@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 
-from sentiment_analysis_cli import sentiment_analysis
+from sentiment_analysis import SentimentAnalyzer
 
 app = Flask(__name__)
 
@@ -16,7 +16,9 @@ def analyze():
     text = request.form['text']
 
     # Perform sentiment analysis
-    sentiment_label, sentiment_score = sentiment_analysis(text)
+    analyzer = SentimentAnalyzer(text)
+    analyzer.analyze_sentiment()
+    sentiment_label, sentiment_score = analyzer.get_sentiment()
 
     # Return only the result part of the page
     return render_template(
